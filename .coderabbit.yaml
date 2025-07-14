@@ -1,17 +1,17 @@
-+language: en-US
-+reviews:
-+  profile: assertive
-+  path_filters:
-+    - "!node_modules/**"
-+    - "!dist/**"
-+    - "!build/**"
-+    - "!coverage/**"
-+    - "!public/**"
-+  tools:
-+    eslint:
-+      enabled: true
-+    gitleaks:
-+      enabled: true
-+knowledge_base:
-+  code_guidelines:
-+    enabled: true
+language: en-US
+reviews:
+  profile: assertive
+  path_filters:
+    - "!node_modules/**"
+    - "!dist/**"
+    - "!build/**"
+    - "!coverage/**"
+    - "!public/**"
+  tools:
+    eslint:
+      enabled: true
+    gitleaks:
+      enabled: true
+knowledge_base:
+  code_guidelines:
+    enabled: true
