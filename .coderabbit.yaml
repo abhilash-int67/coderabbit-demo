@@ -1,0 +1,69 @@
+# .coderabbit.yaml
+
+version: 1.0
+
+settings:
+  language:
+    - php
+    - javascript
+    - html
+    - css
+    - csharp
+  frameworks:
+    - laravel
+    - .net
+    - react
+  output:
+    format: markdown
+    reportFile: code-review-report.md
+
+checks:
+  codeOptimization:
+    enabled: true
+    description: "Check for redundant code, performance bottlenecks, and unused variables."
+  
+  codeGuidelines:
+    enabled: true
+    description: "Ensure adherence to internal coding guidelines and naming conventions."
+
+  wcagValidation:
+    enabled: true
+    level: "AA"
+    description: "Verify frontend code for accessibility compliance based on WCAG 2.0 AA standards."
+
+  boilerplateValidation:
+    enabled: true
+    description: "Validate whether the code structure follows the expected boilerplate or project scaffolding."
+
+  basicStandards:
+    enabled: true
+    description: "Check for clean code practices, indentation, spacing, and comment clarity."
+
+  codeRefactoring:
+    enabled: true
+    description: "Suggest improvements to make code more modular, reusable, and maintainable."
+
+  psrCompliance:
+    enabled: true
+    description: "Ensure code follows PHP PSR standards including PSR-1, PSR-2, PSR-4."
+
+  accessibility:
+    enabled: true
+    description: "Check for ARIA roles, semantic tags, keyboard navigation, and color contrast issues."
+
+  dotNetSupport:
+    enabled: true
+    description: "Enable scanning and analysis of C#/.NET codebase for best practices and security issues."
+
+exclusions:
+  - node_modules/
+  - vendor/
+  - dist/
+  - build/
+
+ciIntegration:
+  enabled: true
+  tools:
+    - github
+    - gitlab
+    - bitbucket

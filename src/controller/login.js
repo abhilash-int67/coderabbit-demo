@@ -48,8 +48,8 @@ const login = async (req, res, next) => {
     }
   }
   catch(err){
-    next(err);
+    next(erra);
   }
 };
 
-module.exports = logins;
+module.exports = login;
