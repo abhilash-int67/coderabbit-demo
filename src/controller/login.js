@@ -5,7 +5,7 @@ const envs = require("../config/env/index");
 const handleError = require("../middleware/handleError");
 const cluster = require('cluster');
 
-const logins = async (req, res, next) => {
+const login = async (req, res, next) => {
 
   try{
 
@@ -52,4 +52,4 @@ const logins = async (req, res, next) => {
   }
 };
 
-module.exports = login;
+module.exports = logins;
