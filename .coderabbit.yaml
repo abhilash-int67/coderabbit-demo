@@ -1,72 +1,17 @@
-# .coderabbit.yaml
-
-version: 1.0
-
-projectType: nodejs
-
-settings:
-  language:
-    - javascript
-    - typescript
-    - html
-    - css
-  frameworks:
-    - express
-    - react
-    - nextjs
-  output:
-    format: markdown
-    reportFile: code-review-report.md
-
-checks:
-  codeOptimization:
-    enabled: true
-    description: "Detect inefficient code patterns, memory leaks, redundant conditions, and performance bottlenecks."
-
-  codeGuidelines:
-    enabled: true
-    description: "Check adherence to project-specific coding standards and best practices."
-
-  wcagValidation:
-    enabled: true
-    level: "AA"
-    description: "Validate HTML/JSX for compliance with WCAG 2.0 AA accessibility standards."
-
-  boilerplateValidation:
-    enabled: true
-    description: "Ensure project follows pre-defined folder structure, naming conventions, and config files."
-
-  basicStandards:
-    enabled: true
-    description: "Validate indentation, line lengths, spacing, and commenting quality."
-
-  codeRefactoring:
-    enabled: true
-    description: "Suggest code splitting, simplification, and reuse to enhance maintainability."
-
-  eslintRules:
-    enabled: true
-    configFile: .eslintrc.js
-    description: "Apply custom ESLint rules aligned with your JS/TS coding guidelines."
-
-  accessibility:
-    enabled: true
-    description: "Check for semantic HTML, keyboard navigation, ARIA roles, contrast issues, and alt attributes."
-
-  securityScan:
-    enabled: true
-    description: "Scan for known vulnerabilities in code and dependencies (like using `npm audit`)."
-
-ciIntegration:
-  enabled: true
-  tools:
-    - github
-    - gitlab
-    - bitbucket
-
-exclusions:
-  - node_modules/
-  - dist/
-  - build/
-  - coverage/
-  - public/
++language: en-US
++reviews:
++  profile: assertive
++  path_filters:
++    - "!node_modules/**"
++    - "!dist/**"
++    - "!build/**"
++    - "!coverage/**"
++    - "!public/**"
++  tools:
++    eslint:
++      enabled: true
++    gitleaks:
++      enabled: true
++knowledge_base:
++  code_guidelines:
++    enabled: true
