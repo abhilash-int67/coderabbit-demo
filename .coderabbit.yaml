@@ -2,17 +2,18 @@
 
 version: 1.0
 
+projectType: nodejs
+
 settings:
   language:
-    - php
     - javascript
+    - typescript
     - html
     - css
-    - csharp
   frameworks:
-    - laravel
-    - .net
+    - express
     - react
+    - nextjs
   output:
     format: markdown
     reportFile: code-review-report.md
@@ -20,46 +21,41 @@ settings:
 checks:
   codeOptimization:
     enabled: true
-    description: "Check for redundant code, performance bottlenecks, and unused variables."
-  
+    description: "Detect inefficient code patterns, memory leaks, redundant conditions, and performance bottlenecks."
+
   codeGuidelines:
     enabled: true
-    description: "Ensure adherence to internal coding guidelines and naming conventions."
+    description: "Check adherence to project-specific coding standards and best practices."
 
   wcagValidation:
     enabled: true
     level: "AA"
-    description: "Verify frontend code for accessibility compliance based on WCAG 2.0 AA standards."
+    description: "Validate HTML/JSX for compliance with WCAG 2.0 AA accessibility standards."
 
   boilerplateValidation:
     enabled: true
-    description: "Validate whether the code structure follows the expected boilerplate or project scaffolding."
+    description: "Ensure project follows pre-defined folder structure, naming conventions, and config files."
 
   basicStandards:
     enabled: true
-    description: "Check for clean code practices, indentation, spacing, and comment clarity."
+    description: "Validate indentation, line lengths, spacing, and commenting quality."
 
   codeRefactoring:
     enabled: true
-    description: "Suggest improvements to make code more modular, reusable, and maintainable."
+    description: "Suggest code splitting, simplification, and reuse to enhance maintainability."
 
-  psrCompliance:
+  eslintRules:
     enabled: true
-    description: "Ensure code follows PHP PSR standards including PSR-1, PSR-2, PSR-4."
+    configFile: .eslintrc.js
+    description: "Apply custom ESLint rules aligned with your JS/TS coding guidelines."
 
   accessibility:
     enabled: true
-    description: "Check for ARIA roles, semantic tags, keyboard navigation, and color contrast issues."
+    description: "Check for semantic HTML, keyboard navigation, ARIA roles, contrast issues, and alt attributes."
 
-  dotNetSupport:
+  securityScan:
     enabled: true
-    description: "Enable scanning and analysis of C#/.NET codebase for best practices and security issues."
-
-exclusions:
-  - node_modules/
-  - vendor/
-  - dist/
-  - build/
+    description: "Scan for known vulnerabilities in code and dependencies (like using `npm audit`)."
 
 ciIntegration:
   enabled: true
@@ -67,3 +63,10 @@ ciIntegration:
     - github
     - gitlab
     - bitbucket
+
+exclusions:
+  - node_modules/
+  - dist/
+  - build/
+  - coverage/
+  - public/
