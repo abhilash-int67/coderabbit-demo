@@ -1,0 +1,447 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a simple example NodeJS API project to demonstrate Swagger Documentation - API_KEY = 8qz5gaEXqqH98&Q5USDNHm$uHUq*xADs&Z*9Hxfq$6vE!&$p",
+        "version": "1.0.0",
+        "title": "API",
+        "contact": {
+            "email": "abc@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "basePath": "/api",
+    "paths" : {
+        "/login" : {
+            "post" : {
+                "summary" : "Get user details",
+                "description": "Get user details",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                    "name": "api-key",
+                    "in": "header",
+                    "description": "API key",
+                    "required": true,
+                    "type": "string"
+                },{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Parameters",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                          "email": {
+                            "type": "string"
+                          },
+                          "password": {
+                            "type": "string"
+                          }
+                        },
+                        "required": ["email","password"]
+                      }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ValidResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/registration" : {
+            "post" : {
+                "summary" : "User registration",
+                "description": "User registration",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                    "name": "api-key",
+                    "in": "header",
+                    "description": "API key",
+                    "required": true,
+                    "type": "string"
+                },{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Parameters",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "object",
+                            "properties": {
+                                "first": {
+                                    "type": "string"
+                                },
+                                "last": {
+                                    "type": "string"
+                                }
+                            }
+                          },
+                          
+                          "email": {
+                            "type": "string"
+                          },
+                          "password": {
+                            "type": "string"
+                          }
+                        },
+                        "required": ["name","email","password"]
+                      }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ValidResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/getUserDetails" : {
+            "get" : {
+                "summary" : "get user",
+                "description": "get user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                        "name": "api-key",
+                        "in": "header",
+                        "description": "API key",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "bearer-token",
+                        "in": "header",
+                        "description": "user access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ValidResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/addUserInfo" : {
+            "post" : {
+                "summary" : "User Info",
+                "description": "User Info",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "content-type": ["application/octet"],
+                "parameters": [{
+                        "name": "api-key",
+                        "in": "header",
+                        "description": "API key",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "bearer-token",
+                        "in": "header",
+                        "description": "user access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "profile_image": {
+                                    "type": "string"
+                                },
+                                
+                                "image_name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["profile_image","image_name"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ValidResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/addProduct" : {
+            "post" : {
+                "summary" : "User Info",
+                "description": "User Info",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "content-type": ["application/octet"],
+                "parameters": [{
+                        "name": "api-key",
+                        "in": "header",
+                        "description": "API key",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "bearer-token",
+                        "in": "header",
+                        "description": "user access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "sku_code": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "variants": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "model_no":{
+                                                "type": "string"
+                                            },
+                                            "model_name":{
+                                                "type": "string"
+                                            },
+                                            "color":{
+                                                "type": "string"
+                                            },
+                                            "quantity":{
+                                                "type": "number"
+                                            },
+                                            "price":{
+                                                "type": "number"
+                                            },
+                                            "description":{
+                                                "type": "string"
+                                            },
+                                            "productImages":{
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "image": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "description": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": ["name"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ValidResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/getProductDetails" : {
+            "get" : {
+                "summary" : "get user",
+                "description": "get user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                        "name": "api-key",
+                        "in": "header",
+                        "description": "API key",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ValidResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/sendCodeToUsers" : {
+            "post" : {
+                "summary" : "Send Promotional Code",
+                "description": "User Info",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "content-type": ["application/octet"],
+                "parameters": [{
+                        "name": "api-key",
+                        "in": "header",
+                        "description": "API key",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                
+                            },
+                            "required": []
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ValidResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    
+    "definitions": {
+        
+        "ValidResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "string"
+                }
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        }
+    }
+}

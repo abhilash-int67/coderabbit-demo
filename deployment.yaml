@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-kube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-app-kube
+  template:
+    metadata:
+      labels:
+        app: node-app-kube
+    spec:
+      containers:
+        - name: node-app-kube
+          image: node-app-kube:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
