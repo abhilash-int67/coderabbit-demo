@@ -44,8 +44,6 @@ tools:
   # ✅ Accessibility & WCAG Validation
   htmlhint:
     enabled: true         # Basic HTML rules + custom WCAG rule support
-  eslint-plugin-jsx-a11y:
-    enabled: true         # JS/React accessibility – use via ESLint config
 
   # ✅ Boilerplate & Folder Structure Checks
   ast-grep:
